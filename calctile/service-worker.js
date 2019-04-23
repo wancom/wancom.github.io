@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/calctile/precache-manifest.5a03b7cc975a4f9367ed9d43875b3bb6.js"
+  "/calctile/precache-manifest.d94d7702625a36dcf04bd35d3a338967.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "calctile"});
