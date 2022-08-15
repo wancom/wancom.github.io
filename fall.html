@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Fall</title>
+  <meta charset="utf-8">
+  <style>
+    html, body{
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      background-image: linear-gradient(#ffaa77, #99aacc);
+    }
+    div {
+      width: 60px;
+      height: 60px;
+      top: 0px;
+      left: 0px;
+      position: absolute;
+    }
+
+    .fall {
+      top: calc(100% - 50px);
+      animation: fallanime 25s linear 1;
+    }
+    @keyframes fallanime {
+      0% {
+        transform: translate(0, calc(-100vh - 100px));
+      }
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+
+    .shake {
+      animation: shakeanime 3s ease-in-out infinite alternate;
+      transform-origin:50% -300%;
+    }
+    @keyframes shakeanime {
+      0% {
+        transform: rotateZ(-30deg);
+      }
+      100% {
+        transform: rotateZ(30deg);
+      }
+    }
+
+    .rolling {
+      background-size: 60px 60px;
+      animation: rollinganime 5s linear infinite;
+    }
+    @keyframes rollinganime {
+      0% {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+      }
+      100% {
+        transform: rotateX(720deg) rotateY(720deg) rotateZ(360deg);
+      }
+    }
+
+    .stop {
+      animation-play-state: paused;
+    }
+  </style>
+  <script>
+    function addLeaf() {
+      // Decide drop point
+      const x = Math.random() * 100 + "%";
+
+      // Add falling leaf
+      let falldiv = document.createElement('div');
+      falldiv.className = "fall";
+      falldiv.style.left = x;
+      
+      let shakediv = document.createElement('div');
+      shakediv.className = "shake";
+      shakediv.style="animation-delay:-"+ ( Math.random() * 2 ) + "s"
+
+      let rollingdiv = document.createElement('div');
+      rollingdiv.className = "rolling";
+      rollingdiv.style="animation-delay:-"+ ( Math.random() * 2 ) + "s;"
+      rollingdiv.style.backgroundImage="url('./leaf/"+(Math.floor(Math.random()*12)%11+1)+".png')"
+      
+      shakediv.appendChild(rollingdiv);
+      falldiv.appendChild(shakediv);
+      document.body.appendChild(falldiv);
+
+      setTimeout(function () {
+        shakediv.className = "shake stop";
+        rollingdiv.className = "rolling stop";
+        setTimeout(function () {
+          document.body.removeChild(drop);
+        }, 30000);
+      }, 25000);
+    }
+    setInterval(addLeaf, 5000);
+    setTimeout(addLeaf, 100);
+  </script>
+</head>
+
+<body>
+</body>
+
+</html>
