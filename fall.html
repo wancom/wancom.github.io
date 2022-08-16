@@ -94,12 +94,17 @@
         }, 10*60000);
       }, 25000);
     }
-    setInterval(addLeaf, 5000);
-    setTimeout(addLeaf, 100);
   </script>
 </head>
 
 <body>
+  <script>
+    setInterval(addLeaf, 5000);
+    addLeaf()
+    document.body.onclick=function(){
+      addLeaf()
+    }
+  </script>
 </body>
 
 </html>
