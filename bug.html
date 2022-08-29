@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Bug</title>
+  <meta charset="utf-8">
+  <style>
+    html, body{
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      background-color: lightgray;
+    }
+    .bug {
+      width: 25px;
+      top: 0px;
+      left: 0px;
+      position: absolute;
+      display: flex;
+      animation: buganime 30s linear infinite;
+      font-size: 20pt;
+    }
+
+    @keyframes buganime {
+      0% {
+        top: 20%;
+        left: 0%;
+        transform: rotateZ(30deg);
+      }
+      10% {
+        top: 10%;
+        left: 70%;
+        transform: rotateZ(45deg);
+      }
+      20% {
+        top: 20%;
+        left: 90%;
+        transform: rotateZ(135deg);
+      }
+      30% {
+        top: 50%;
+        left: 50%;
+        transform: rotateZ(210deg);
+      }
+      40% {
+        top: 20%;
+        left: 0%;
+        transform: rotateZ(320deg);
+      }
+      50% {
+        top: 60%;
+        left: 20%;
+        transform: rotateZ(135deg);
+      }
+      60% {
+        top: 90%;
+        left: 90%;
+        transform: rotateZ(90deg);
+      }
+      70% {
+        top: 80%;
+        left: 20%;
+        transform: rotateZ(-45deg);
+      }
+      80% {
+        top: 30%;
+        left: 80%;
+        transform: rotateZ(45deg);
+      }
+      90% {
+        top: 50%;
+        left: 40%;
+        transform: rotateZ(-45deg);
+      }
+      100% {
+        top: 20%;
+        left: 0%;
+        transform: rotateZ(45deg);
+      }
+    }
+    .beat{
+      animation: beatanime 0.2s linear infinite;
+      transform-origin: 25px 0;
+    }
+    .beat2{
+      animation: beatanime 0.2s linear infinite;
+      transform-origin: 0 0;
+    }
+    @keyframes beatanime {
+      0% {
+        transform: rotateY(-60deg);
+      }
+      50% {
+        transform: rotateY(60deg);
+      }
+      100% {
+        transform: rotateY(-60deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bug">
+    <div class="beat">B</div>
+    <div>U</div>
+    <div class="beat2">G</div>
+  </div>
+</body>
+
+</html>
